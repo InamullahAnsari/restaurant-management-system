@@ -1,12 +1,13 @@
 import React from 'react';
-import Restaurants from "./components/contacts/Restaurants";
+import Restaurants from "./components/restaurants/Restaurants";
 import Navbar from "./components/elements/Navbar";
 import "./styles/App.scss";
 import {Provider} from "react-redux";
 import store from "./store";
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import AddRestaurant from "./components/contacts/AddRestaurant";
-import EditRestaurant from "./components/contacts/EditRestaurant";
+import AddRestaurant from "./components/restaurants/AddRestaurant";
+import EditRestaurant from "./components/restaurants/EditRestaurant";
+import RestaurantDetails from './components/restaurants/RestaurantDetails';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
               <Route exact path="/" component={Restaurants} />
               <Route exact path="/restaurants/add" component={AddRestaurant} />
               <Route exact path="/restaurants/edit/:id" component={EditRestaurant} />
+              <Route exact path="/restaurants/restaurantDetails" component={RestaurantDetails} />
             </Switch>
           </div>
         </div>

@@ -9,7 +9,7 @@ const Navbar = () => {
                     Restaurant Management System
                 </Link>
                 <div>
-                    <Link to="/contacts/add" className="btn btn-light ml-auto">
+                    <Link to="/restaurants/add" className="btn btn-light ml-auto">
                         Add Restaurant
                     </Link>
                 </div>

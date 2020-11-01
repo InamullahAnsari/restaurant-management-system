@@ -1,4 +1,4 @@
-import {CREATE_RESTAURANT, DELETE_RESTAURANT, GET_RESTAURANT, UPDATE_RESTAURANT, SELECT_RESTAURANT, CLEAR_RESTAURANT, DELETE_SELECTED_RESTAURANTS} from '../constants/types'
+import {CREATE_RESTAURANT, GET_RESTAURANT, UPDATE_RESTAURANT } from '../constants/types'
 
 const initialState = {
     restaurants: [
@@ -105,9 +105,10 @@ export const restaurantReducer = (state = initialState, action) => {
                 restaurants: [action.payload, ...state.restaurants]
             }
         case GET_RESTAURANT:
-            let arr = state.restaurants.filter((restaurant) => restaurant.id == action.payload);
+            let arr = state.restaurants.filter((restaurant) => restaurant.id === action.payload);
             arr = arr.values();
             for(let val of arr){
+                console.log(val)
                 arr = val;
             }    
             return {
@@ -117,27 +118,7 @@ export const restaurantReducer = (state = initialState, action) => {
         case UPDATE_RESTAURANT:
             return {
                 ...state,
-                restaurants: state.restaurants.map(restaurant => restaurant.id == action.payload.id ? action.payload : restaurant),
-            }
-        case DELETE_RESTAURANT:
-            return {
-                ...state,
-                restaurants: state.restaurants.filter((restaurant) => restaurant.id != action.payload),
-            }
-        case SELECT_RESTAURANT: 
-            return {
-                ...state,
-                selectedRestaurants: action.payload,
-            }
-        case CLEAR_RESTAURANT: 
-            return {
-                ...state,
-                selectedRestaurants: [],
-            }
-        case DELETE_SELECTED_RESTAURANTS: 
-            return {
-                ...state,
-                restaurants: [],
+                restaurants: state.restaurants.map(restaurant => restaurant.id === action.payload.id ? action.payload : restaurant),
             }
         default:
             return state;
